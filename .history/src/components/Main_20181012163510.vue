@@ -1,0 +1,137 @@
+<style scoped>
+.layout {
+  border: 1px solid #d7dde4;
+  background: #f5f7f9;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  height: inherit;
+}
+.ivu-layout {
+  height: inherit;
+}
+.layout-logo {
+  width: 100px;
+  height: 30px;
+  background: #5b6270;
+  border-radius: 3px;
+  float: left;
+  position: relative;
+  top: 15px;
+  left: 20px;
+}
+.layout-nav {
+  width: 260px;
+  margin: 0 auto;
+  margin-right: 20px;
+}
+.layout-nav li:hover{
+  color: #1890ff
+}
+.ivu-layout-header{
+  padding: 0 20px
+}
+.layout-con{
+        height: 100%;
+        width: 100%;
+    }
+    .menu-item span{
+        display: inline-block;
+        overflow: hidden;
+        width: 69px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: bottom;
+        transition: width .2s ease .2s;
+    }
+    .menu-item i{
+        transform: translateX(0px);
+        transition: font-size .2s ease, transform .2s ease;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+    .collapsed-menu span{
+        width: 0px;
+        transition: width .2s ease;
+    }
+    .collapsed-menu i{
+        transform: translateX(5px);
+        transition: font-size .2s ease .2s, transform .2s ease .2s;
+        vertical-align: middle;
+        font-size: 22px;
+    }
+    .f16{
+      font-size: 18px;
+    }
+</style>
+<template>
+    <div class="layout">
+        <Layout style="{height:100%}" value=true>
+            {{MenuHeader}}
+            <Layout>
+                <Sider hide-trigger :style="{background: '#fff'}" width="250px" collapsible :collapsed-width="78" v-model="isCollapsed" >
+                    <Menu active-name="1-2" theme="light"  width="auto" :open-names="['1']" :class="menuitemClasses">
+                      <Submenu name="1">
+                          <template slot="title">
+                              <Icon type="ios-analytics" />
+                              Navigation One
+                          </template>
+                          <MenuGroup title="Item 1">
+                              <MenuItem name="1-1">Option 1</MenuItem>
+                              <MenuItem name="1-2">Option 2</MenuItem>
+                          </MenuGroup>
+                          <MenuGroup title="Item 2">
+                              <MenuItem name="1-3">Option 3</MenuItem>
+                              <MenuItem name="1-4">Option 4</MenuItem>
+                          </MenuGroup>
+                      </Submenu>
+                      <Submenu name="2">
+                          <template slot="title">
+                              <Icon type="ios-filing" />
+                              Navigation Two
+                          </template>
+                          <MenuItem name="2-1">Option 5</MenuItem>
+                          <MenuItem name="2-2">Option 6</MenuItem>
+                          <Submenu name="3">
+                              <template slot="title">Submenu</template>
+                              <MenuItem name="3-1">Option 7</MenuItem>
+                              <MenuItem name="3-2">Option 8</MenuItem>
+                          </Submenu>
+                      </Submenu>
+                      <Submenu name="4">
+                          <template slot="title">
+                              <Icon type="ios-cog" />
+                              Navigation Three
+                          </template>
+                          <MenuItem name="4-1">Option 9</MenuItem>
+                          <MenuItem name="4-2">Option 10</MenuItem>
+                          <MenuItem name="4-3">Option 11</MenuItem>
+                          <MenuItem name="4-4">Option 12</MenuItem>
+                      </Submenu>
+                  </Menu>
+                </Sider>
+                <Layout :style="{padding: '0 4px 4px'}">
+                    <Content :style="{padding: '8px', minHeight: '280px', background: '#fff'}">
+                        Content
+                    </Content>
+                </Layout>
+            </Layout>
+        </Layout>
+    </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isCollapsed: false
+    };
+  },
+  computed: {
+    menuitemClasses: function() {
+      return ["menu-item", this.isCollapsed ? "collapsed-menu" : ""];
+    }
+  }
+};
+</script>
+
