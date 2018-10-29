@@ -27,7 +27,7 @@
             <div class="layout-logo"></div>
             <div class="layout-nav" id="header_menu">
                 <MenuItem v-for="(list, index) in lists" :key="index" :name="list.id" >
-                    <Icon :type="list.icon"  v-on:click="showMenu" class="f16 m-icon"></Icon>
+                    <Icon :type="list.icon"  v-on:click="showMenu" class="f16 m-icon" color="#2d8cf0"></Icon>
                 </MenuItem>
             </div>
         </Menu>

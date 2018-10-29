@@ -14,7 +14,7 @@
   margin: 0 auto;
   margin-right: 20px;
 }
-.m-icon:hover{
+.layout-nav li:hover{
   color: #1890ff
 }
 .f16{
@@ -25,9 +25,9 @@
   <Header class="menu-header">
         <Menu mode="horizontal" theme="dark">
             <div class="layout-logo"></div>
-            <div class="layout-nav" id="header_menu">
-                <MenuItem v-for="(list, index) in lists" :key="index" :name="list.id" >
-                    <Icon :type="list.icon"  v-on:click="showMenu" class="f16 m-icon"></Icon>
+            <div class="layout-nav" >
+                <MenuItem v-for="(list, index) in lists" :key="index" :name="list.id">
+                    <Icon :type="list.icon" class="f16" color="#2db7f5"></Icon>
                 </MenuItem>
             </div>
         </Menu>
@@ -45,11 +45,6 @@ export default {
         {'icon':'ios-paper','id':4}
       ]
     };
-  },
-  methods:{
-    showMenu(evet) {
-      alert("事件扩展")
-    }
   }
 
 }

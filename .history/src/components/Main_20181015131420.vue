@@ -12,20 +12,20 @@
     <div class="layout">
         <Layout style="{height:100%}" value=true>
             <menu-header></menu-header>
-            <Layout class="ivu-layout-has-sider">
-                <nav-menu></nav-menu>
-                <content-box></content-box>
+            <Layout>
+               <nav-menu></nav-menu>
+                <content></content>
             </Layout>
         </Layout>
     </div>
 </template>
 
 <script>
-import MenuHeader from './extends/MenuHeader';
+import MenuHeader from './extends/MenuHeader'
 import NavMenu from './extends/Nav'
-import ContentBox from './extends/Content';
+import Content from "./extends/Content"
 export default {
-  components: {MenuHeader, NavMenu, ContentBox},
+  components: {MenuHeader,NavMenu,Content},
 };
 </script>
 

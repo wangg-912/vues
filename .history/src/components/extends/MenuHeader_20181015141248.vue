@@ -14,7 +14,7 @@
   margin: 0 auto;
   margin-right: 20px;
 }
-.m-icon:hover{
+.layout-nav li:hover{
   color: #1890ff
 }
 .f16{
@@ -27,7 +27,7 @@
             <div class="layout-logo"></div>
             <div class="layout-nav" id="header_menu">
                 <MenuItem v-for="(list, index) in lists" :key="index" :name="list.id" >
-                    <Icon :type="list.icon"  v-on:click="showMenu" class="f16 m-icon"></Icon>
+                    <Icon :type="list.icon"  v-on:click="showMenu" class="f16" color="#2d8cf0"></Icon>
                 </MenuItem>
             </div>
         </Menu>
@@ -36,6 +36,7 @@
 
 <script>
 export default {
+  el:"#header_menu",
   data(){
     return {
       lists:[
@@ -48,7 +49,7 @@ export default {
   },
   methods:{
     showMenu(evet) {
-      alert("事件扩展")
+      console.log(evet)
     }
   }
 

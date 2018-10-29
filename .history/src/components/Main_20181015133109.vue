@@ -14,7 +14,7 @@
             <menu-header></menu-header>
             <Layout class="ivu-layout-has-sider">
                 <nav-menu></nav-menu>
-                <content-box></content-box>
+                <content></content>
             </Layout>
         </Layout>
     </div>
@@ -23,9 +23,9 @@
 <script>
 import MenuHeader from './extends/MenuHeader';
 import NavMenu from './extends/Nav'
-import ContentBox from './extends/Content';
+import Content from './extends/Content';
 export default {
-  components: {MenuHeader, NavMenu, ContentBox},
+  components: {MenuHeader, NavMenu, Content},
 };
 </script>
 

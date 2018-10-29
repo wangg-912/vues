@@ -32,6 +32,7 @@
     export default {
         data () {
             return {
+              num1:12.3548,
                 formInline: {
                     user: '',
                     password: ''

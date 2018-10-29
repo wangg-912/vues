@@ -12,9 +12,13 @@
     <div class="layout">
         <Layout style="{height:100%}" value=true>
             <menu-header></menu-header>
-            <Layout class="ivu-layout-has-sider">
+            <Layout :class="ivu-layout-has-sider">
                 <nav-menu></nav-menu>
-                <content-box></content-box>
+                <Layout :style="{padding: '0 4px 4px'}">
+                    <Content :style="{padding: '8px', minHeight: '280px', background: '#fff'}">
+                        Content
+                    </Content>
+                </Layout>
             </Layout>
         </Layout>
     </div>
@@ -23,9 +27,8 @@
 <script>
 import MenuHeader from './extends/MenuHeader';
 import NavMenu from './extends/Nav'
-import ContentBox from './extends/Content';
 export default {
-  components: {MenuHeader, NavMenu, ContentBox},
+  components: {MenuHeader, NavMenu},
 };
 </script>
 
