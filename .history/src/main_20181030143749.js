@@ -15,6 +15,7 @@ Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(iView, {locale})
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -46,7 +46,8 @@ export default {
           }
         })
           .then(function(res){
-            this.newsListShow = res.data["data"];
+            console.log(typeof (res.data))
+            this.newsListShow = res.data;
           }.bind(this))
           .catch(function(err){
             if(err.response) {

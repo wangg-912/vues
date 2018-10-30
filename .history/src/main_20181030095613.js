@@ -8,13 +8,11 @@ import locale from 'iview/dist/locale/zh-CN'
 import 'iview/dist/styles/iview.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import './mock/index'
 import './styles/base.less'
-
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(iView, {locale})
-
+require('./mock')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

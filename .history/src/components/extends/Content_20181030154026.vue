@@ -46,6 +46,7 @@ export default {
           }
         })
           .then(function(res){
+            debugger;
             this.newsListShow = res.data["data"];
           }.bind(this))
           .catch(function(err){

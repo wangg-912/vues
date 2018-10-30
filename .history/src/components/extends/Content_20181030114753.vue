@@ -24,7 +24,7 @@
 </template>
 <script>
 import Api from "../../axios/api.js"
-import NewsCell from "./NewCell";
+import NewCell from "./NewCell";
 export default {
   name: 'containers',
   data () {
@@ -33,24 +33,28 @@ export default {
     }
   },
   components:{
-    NewsCell
+    NewCell
   },
   created() {
+    debugger;
     this.setNewsApi();
   },
   methods:{
     setNewsApi: function() {
-      this.$http.post('/api/vehicle',this.qs.stringify({'type':'top','id':'123456'}),{
+      this.axios.post('/api/test',this.qs.stringify({'type':'top','id':'123456'}),{
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         })
           .then(function(res){
-            this.newsListShow = res.data["data"];
+            console.log(res.data)
+                  //控制台打印请求成功时返回的数据
+               //bind(this)可以不用
           }.bind(this))
           .catch(function(err){
             if(err.response) {
-              console.log("错误"+err.response)
+              console.log(err.response)
+                //控制台打印错误返回的内容
             }
                 //bind(this)可以不用
           }.bind(this));

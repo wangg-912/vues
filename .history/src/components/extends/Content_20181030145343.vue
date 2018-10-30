@@ -24,7 +24,7 @@
 </template>
 <script>
 import Api from "../../axios/api.js"
-import NewsCell from "./NewCell";
+import NewCell from "./NewCell";
 export default {
   name: 'containers',
   data () {
@@ -33,9 +33,10 @@ export default {
     }
   },
   components:{
-    NewsCell
+    newcell
   },
   created() {
+    debugger;
     this.setNewsApi();
   },
   methods:{
@@ -46,7 +47,7 @@ export default {
           }
         })
           .then(function(res){
-            this.newsListShow = res.data["data"];
+            this.newsListShow = res.data;
           }.bind(this))
           .catch(function(err){
             if(err.response) {

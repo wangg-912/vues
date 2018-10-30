@@ -11,7 +11,7 @@
 <template>
   <Layout :style="{padding: '0 4px 4px'}" class="content-box">
       <Content :style="{padding: '8px', minHeight: '280px', background: '#fff'}">
-          <div class="containers">
+          <div class="contentx">
             <div v-for="(item, key) in newsListShow">
               <news-cell
               :newsDate="item"
@@ -23,37 +23,24 @@
   </Layout>
 </template>
 <script>
-import Api from "../../axios/api.js"
-import NewsCell from "./NewCell";
+import api from "./../../axios/api.js"
+import NewCell from "./NewCell";
 export default {
-  name: 'containers',
-  data () {
-    return {
-      newsListShow: [],
-    }
-  },
+  name: 'cententx',
+  newsListShow: [],
   components:{
-    NewsCell
+    NewCell
   },
   created() {
     this.setNewsApi();
   },
   methods:{
     setNewsApi: function() {
-      this.$http.post('/api/vehicle',this.qs.stringify({'type':'top','id':'123456'}),{
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
-          .then(function(res){
-            this.newsListShow = res.data["data"];
-          }.bind(this))
-          .catch(function(err){
-            if(err.response) {
-              console.log("错误"+err.response)
-            }
-                //bind(this)可以不用
-          }.bind(this));
+      api.JH_news('/news/index', 'type=top&key=123456')
+      .then(res => {
+        console.log(res);
+        this.newsListShow = res.articles;
+      });
     },
   }
 }
