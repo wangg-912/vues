@@ -23,7 +23,6 @@
   </Layout>
 </template>
 <script>
-import Api from "../../axios/api.js"
 import NewsCell from "./NewCell";
 export default {
   name: 'containers',
@@ -40,7 +39,7 @@ export default {
   },
   methods:{
     setNewsApi: function() {
-      this.$http.post('/api/vehicle',this.qs.stringify({'type':'top','id':'123456'}),{
+      this.$axios.post('/api/vehicle',this.qs.stringify({'type':'top','id':'123456'}),{
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           }

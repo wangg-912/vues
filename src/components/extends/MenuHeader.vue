@@ -26,8 +26,8 @@
         <Menu mode="horizontal" theme="dark">
             <div class="layout-logo"></div>
             <div class="layout-nav" id="header_menu">
-                <MenuItem v-for="(list, index) in lists" :key="index" :name="list.id" >
-                    <Icon :type="list.icon"  v-on:click="showMenu" class="f16 m-icon"></Icon>
+                <MenuItem class="headerMenu" v-for="(list, key) in lists" :key="key" :name="list.id" >
+                    <Icon :type="list.icon"  @click="showMenu" class="f16 m-icon"></Icon>
                 </MenuItem>
             </div>
         </Menu>
@@ -38,13 +38,19 @@
 export default {
   data(){
     return {
-      lists:[
-        {'icon':'ios-navigate','id':1},
-        {'icon':'ios-keypad','id':2},
-        {'icon':'ios-analytics','id':3},
-        {'icon':'ios-paper','id':4}
-      ]
+      lists:[]
     };
+  },
+  created(){
+      this.$axios.get("/api/head")
+      .then((res)=>{
+        if(res.data.code == 200){
+          this.lists = res.data.data
+        }
+      })
+      .catch((err)=>{
+        console.log("错误"+err);
+      })
   },
   methods:{
     showMenu(evet) {
