@@ -23,7 +23,7 @@
 <script>
 import MenuHeader from './extends/MenuHeader';
 /* import NavMenu from './extends/Nav' */
-import LeftMenu from './menu/LeftMenu';
+import LeftMenu form './menu/LeftMenu';
 import ContentBox from './extends/Content';
 export default {
   components: {MenuHeader, LeftMenu, ContentBox},

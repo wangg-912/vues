@@ -13,7 +13,7 @@
         <Layout style="{height:100%}" value=true>
             <menu-header></menu-header>
             <Layout class="ivu-layout-has-sider">
-                <left-menu></left-menu>
+                <nav-menu></nav-menu>
                 <content-box></content-box>
             </Layout>
         </Layout>
@@ -23,7 +23,7 @@
 <script>
 import MenuHeader from './extends/MenuHeader';
 /* import NavMenu from './extends/Nav' */
-import LeftMenu from './menu/LeftMenu';
+import LeftMenu form './menu/LeftMenu';
 import ContentBox from './extends/Content';
 export default {
   components: {MenuHeader, LeftMenu, ContentBox},

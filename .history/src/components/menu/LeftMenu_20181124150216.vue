@@ -1,0 +1,67 @@
+<style>
+.ivu-layout{
+  height: inherit
+}
+.ivu-menu.ivu-menu-vertical{
+  height: 100%;
+}
+</style>
+
+<template>
+  <Row>
+    <Menu ref="leftMenu" :theme="theme2" active-name="1-2" :open-names="open" >
+        <Submenu v-for="(menu,index) in menuLists" :key="index" :id="menu.id" :name = "menu.sort">
+          <template slot="title">
+                <Icon :type="menu.iconCls" />
+                {{menu.text}}
+            </template>
+            <div v-if="menu.children.length" v-for="(cmenu, ci) in menu.children">
+
+            </div>
+        </Submenu>
+    </Menu>
+  </Row>
+</template>
+<script>
+export default {
+  data(){
+    return {
+      open:[],
+      menuLists:[],
+      theme2: 'light'
+    }
+  },
+  created(){
+    this.getMenuData();
+  },
+  /* updated(){
+    debugger;
+     this.setMenu();
+  }, */
+  methods:{
+    setMenu() {
+      this.open = ["1"];
+      this.$nextTick(function() {
+        this.$refs.leftMenu.updateOpened();
+        this.$refs.leftMenu.updateActiveName();
+      })
+    },
+    getMenuData(){
+      this.$axios.get("/api/menu")
+      .then((res)=>{
+        if(res.data.code == 200){
+          this.menuLists = res.data.data;
+          console.log(this.menuLists);
+         // var t = setTimeout(()=>{
+            this.setMenu();
+          //},1000)
+        }
+      })
+      .catch((err)=>{
+        console.log("错误"+err);
+      })
+    }
+  }
+}
+</script>
+
